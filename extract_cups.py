@@ -401,27 +401,16 @@ def plot_vals(df):
     return fig
 
 if __name__ == '__main__':
-    # directory = "videos copy"
-    # for category in os.listdir(directory):
-        
-    #     category_path = os.path.join(directory, category)
-       
-    #     if os.path.isdir(category_path):
-    #         for file in os.listdir(category_path):
-    #             file_name = file[:-4]
- 
-    #             vid_string= f"{category_path}\{file_name}.mp4"
-
-    #             feature_df = extract_vid_feats(vid_string)
-
-    #             feature_df.to_csv(f"csv\category\{file_name}_poi.csv", index=False)
-
+    
+    ### CHANGE THIS STRING FOR EACH VIDEO, NOT AUTOMATED YET ###
     vid = 'videos/colour/G134_E5.mp4'
+    ############################################################
+    
     file = vid.split("/")[-1][:-4]
     csv_path = f"csv/{file}_poi.csv"
     output_vid_path = f"out_vid/{file}"
-    # df = extract_vid_feats(vid, output_vid_path)
-    # df.to_csv(csv_path, index=False)
+    df = extract_vid_feats(vid, output_vid_path)
+    df.to_csv(csv_path, index=False)
 
     df = pd.read_csv(csv_path)
 
